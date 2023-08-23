@@ -1,0 +1,32 @@
+<table class="table text-center table-striped" border="2">
+    <thead>
+        <th class="text-center" scope="col">Flight Number</th>
+      <th class="text-center" scope="col">Airlines</th>
+      <th class="text-center"scope="col">Departure City</th>
+      <th class="text-center"scope="col">Arrival City</th>
+      <th class="text-center" scope="col">Departure Date</th>
+      <th class="text-center"scope="col">Time</th>
+      <th class="text-center" scope="col">Choose</th>
+    </thead>
+    <tbody>
+      <tr *ngFor="let flight of data">
+         <td class="text-center">{{flight.flightNumber}}</td>
+        <td class="text-center">{{flight.operatingAirlines}}</td>
+        <td>
+          {{flight.departingCity}}
+        </td>
+        <td>
+            {{flight.arrivingCity}}
+      </td>
+        <td>
+          {{flight.dateOfDeparture | date:'mediumDate'}}
+          </td>
+        <td>
+          {{flight.departingTime}}
+        </td>
+       <td>
+        <button class="btn btn-primary btn-sm" (click)='OnSelect(flight.id)'>Select</button>
+        </td>
+     </tr>
+    </tbody>
+  </table>

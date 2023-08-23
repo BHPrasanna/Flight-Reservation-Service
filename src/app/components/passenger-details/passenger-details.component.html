@@ -1,0 +1,163 @@
+<div class="container">
+    <h2>Passenger Details</h2>
+    <form #PassengerForm="ngForm" (ngSubmit)="OnConfirm()">
+        <div class="row">
+            <div class="col-md-4 mb-4">
+                <label for="FirstName">First Name</label>
+                        <input type="text" 
+                               id="FirstName" 
+                               class="form-control"
+                               name="firstName"
+                               pattern="[a-zA-Z][a-zA-Z ]+"
+                               [(ngModel)]="reservation.firstName"
+                               required 
+                               #firstName="ngModel"
+                               placeholder="Enter your first name">
+                               <div class="redtext" *ngIf="firstName.invalid && firstName.touched">
+                                <div *ngIf="firstName.errors?.['required']">
+                                  <p>First name is required.</p>
+                                </div>
+                                <div *ngIf="firstName.errors?.['pattern']">
+                                  <p>First name should only contain alphabets.</p>
+                                </div>
+                              </div>
+             </div>
+             <div class="col-md-4 mb-4">
+                <label for="MiddleName">Middle Name</label>
+                    <input type="text" 
+                            id="MiddleName" 
+                            class="form-control"
+                            name="middleName"
+                            pattern="[a-zA-Z][a-zA-Z ]+"
+                            [(ngModel)]="reservation.middleName"
+                            required 
+                            #middleName="ngModel"
+                            placeholder="Enter your middle name">
+                            <div class="redtext" *ngIf="middleName.invalid && middleName.touched">
+                             <div *ngIf="middleName.errors?.['required']">
+                                <p>Middle name is required.</p>
+                             </div>
+                             <div *ngIf="middleName.errors?.['pattern']">
+                                <p>Middle name should only contain alphabets.</p>
+                             </div>
+                             </div>
+                            </div>
+             <div class="col-md-4 mb-4">
+                <label for="LastName">Last Name</label>
+                    <input type="text" 
+                            id="LastName" 
+                            class="form-control"
+                            name="lastName"
+                            pattern="[a-zA-Z][a-zA-Z ]+"
+                            [(ngModel)]="reservation.lastName"
+                            required 
+                            #lastName="ngModel"
+                            placeholder="Enter your middle name">
+                            <div class="redtext" *ngIf="lastName.invalid && lastName.touched">
+                             <div *ngIf="lastName.errors?.['required']">
+                                <p>Last name is required.</p>
+                             </div>
+                             <div *ngIf="lastName.errors?.['pattern']">
+                                <p>Last name should only contain alphabets.</p>
+                             </div>
+                             </div>
+                            </div>
+        
+                            <div class="row container2">
+                                <div class="col-md-6 mb-6">
+                                    <label for="Mobile">Mobile</label>
+                                    <input type="text" 
+                                   id="Mobile" 
+                                   class="form-control"
+                                   name="mobile"
+                                   [(ngModel)]="reservation.mobile"
+                                   pattern="^\d{10}$"
+                                   required
+                                   #mobile="ngModel"
+                                   placeholder="Enter Mobile number">
+                                   <div class="redtext" *ngIf="mobile.invalid && mobile.touched">
+                                    <div *ngIf="mobile.errors?.['required']">
+                                      <p>Mobile number is required.</p>
+                                    </div>
+                                    <div *ngIf="mobile.errors?.['pattern']">
+                                      <p>Please enter a valid 10-digit mobile number</p>
+                                    </div>
+                                  </div>
+                                  </div>
+                                  <div class="col-md-6 mb-6">
+                                    <label for="email">Email ID</label>
+                                    <input type="text" 
+                                           id="EmailID" 
+                                           class="form-control"
+                                           name="emailid"
+                                           [(ngModel)]="reservation.email"
+                                           required
+                                           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+                                           #emailid="ngModel"
+                                           placeholder="Enter your email address">
+                                           <div class="redtext" *ngIf="emailid.invalid && emailid.touched">
+                                            <div *ngIf="emailid.errors?.['required']">
+                                              <p>Email is required.</p>
+                                            </div>
+                                            <div *ngIf="emailid.errors?.['pattern']">
+                                              <p>Enter valid email id.</p>
+                                            </div>
+                                          </div>
+                                  </div>
+                             </div>
+        </div>
+        <div class="row container3">
+            <div class="col-md-6 mb-6">
+                <label for="cardNumber">Card Number</label>
+                <input type="text" 
+                id="cardNumber" 
+                class="form-control"
+                name="cardNumber"
+                [(ngModel)]="reservation.cardNumber"
+                required
+                pattern="[a-zA-Z][a-zA-Z ]+"
+                #emailid="ngModel"
+                placeholder="Enter your card number">
+            </div>
+            <div class="col-md-6 mb-6">
+                <label for="expirationDate">Expiration Date</label>
+                <input type="text" 
+                id="expirationDate" 
+                class="form-control"
+                name="expirationDate"
+                [(ngModel)]="reservation.expirationDate"
+                required
+                pattern="[a-zA-Z][a-zA-Z ]+"
+                #emailid="ngModel"
+                placeholder="Enter your expiration date">
+            </div>
+        </div>
+        <div class="row container4">
+            <div class="col-md-6 mb-6">
+                <label for="securityCode">Security Code</label>
+                <input type="text" 
+                id="securityCode" 
+                class="form-control"
+                name="securityCode"
+                [(ngModel)]="reservation.securityCode"
+                required
+                pattern="[a-zA-Z][a-zA-Z ]+"
+                #emailid="ngModel"
+                placeholder="Enter your security code">
+            </div>
+            <div class="col-md-6 mb-6">
+                <label for="flightNumber">Flight Number</label>
+                <input type="text" 
+                id="flightNumber" 
+                class="form-control"
+                name="flightNumber"
+                [ngModel]="flightData.flightNumber"
+                readonly
+                #emailid="ngModel">
+            </div>
+        </div>
+        <div class="form-group SubmitBtn">
+            <button class="btn btn-primary btn-lg" [disabled]="!PassengerForm.valid">Confirm</button>   
+          </div> 
+    </form>
+</div>

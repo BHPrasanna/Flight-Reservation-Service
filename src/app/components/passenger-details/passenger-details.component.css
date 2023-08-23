@@ -1,0 +1,25 @@
+.container{
+    margin-left:25px;
+}
+.redtext{
+    color:red;
+}
+
+.SubmitBtn{
+    margin-left:20px;
+    margin-right:20px;
+    margin-top:50px;
+}
+label{
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+.container2{
+    padding-top:20px;
+}
+.container3{
+    padding-top:20px;
+}
+.container4{
+    padding-top:20px;
+}

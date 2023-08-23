@@ -1,0 +1,42 @@
+<div class="container">
+    <div class="header">Flight Booking</div>
+    <br><br>
+    <form #findFlightsForm="ngForm" (ngSubmit)="onSubmit()" class="row">
+      <div class="col-md-3 mb-3">
+        <input type="text" 
+          [(ngModel)]="criteria.departingCity"
+          class="form-control"
+          name="from"
+          required
+          pattern="[a-zA-Z][a-zA-Z ]+"
+          placeholder="From">
+      </div>
+      <div class="col-md-3 mb-3">
+        <input type="text"
+          [(ngModel)]="criteria.arrivingCity"
+          class="form-control"
+          name="to"
+          required
+          pattern="[a-zA-Z][a-zA-Z ]+"
+          placeholder="To">
+      </div>
+      <div class="col-md-3 mb-3">
+          <input type="text" 
+            [(ngModel)]="criteria.dateOfDeparture"
+            onfocus="(this.type='date')"
+            placeholder="Travelling Date"
+            name="dateOfDeparture"
+            class="form-control"
+            required>
+      </div>
+      <div class="col-md-3 mb-3">
+        <button class="btn btn-primary" type="submit">Search</button>
+      </div>
+    </form>
+    <div *ngIf="search">
+        <router-outlet></router-outlet>
+    </div>
+    
+  </div>
+ 
+  
